@@ -1,4 +1,4 @@
-# Projeto Spring Boot
+# Projeto Final Gerenciamento de Agendamento de Serviços
 
 ## 📌 Sobre o Projeto
 
