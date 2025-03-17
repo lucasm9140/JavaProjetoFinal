@@ -1,0 +1,19 @@
+/* Tema Escuro */
+.dark-theme {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  .dark-theme .card {
+    background-color: #2d2d2d;
+    border-color: #444;
+  }
+  
+  /* Estilo Geral */
+  body {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .card {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }

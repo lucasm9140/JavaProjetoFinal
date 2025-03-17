@@ -1,4 +1,4 @@
-/***
+
 CREATE DATABASE IF NOT EXISTS estetica_auto;
 USE estetica_auto;
 

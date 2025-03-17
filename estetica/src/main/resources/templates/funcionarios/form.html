@@ -9,18 +9,24 @@
 <div class="container mt-4">
   <h2 th:text="${funcionario.id == null} ? 'Novo Funcionário' : 'Editar Funcionário'"></h2>
   <form th:action="@{/funcionarios/salvar}" th:object="${funcionario}" method="post">
+    <!-- Campo oculto para o ID do funcionário (necessário para edição) -->
+    <input type="hidden" th:field="*{id}"/>
+
     <div class="mb-3">
       <label class="form-label">Nome</label>
-      <input type="text" class="form-control" th:field="*{nome}" required>
+      <input type="text" class="form-control" th:field="*{nome}" required/>
     </div>
+
     <div class="mb-3">
       <label class="form-label">Cargo</label>
-      <input type="text" class="form-control" th:field="*{cargo}" required>
+      <input type="text" class="form-control" th:field="*{cargo}" required/>
     </div>
+
     <div class="mb-3">
       <label class="form-label">Telefone</label>
-      <input type="text" class="form-control" th:field="*{telefone}" required>
+      <input type="text" class="form-control" th:field="*{telefone}" required/>
     </div>
+
     <button type="submit" class="btn btn-success">Salvar</button>
     <a th:href="@{/funcionarios}" class="btn btn-secondary">Cancelar</a>
   </form>

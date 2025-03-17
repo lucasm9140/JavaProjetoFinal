@@ -1,3 +1,4 @@
+<!-- Formulário de criação/edição do cliente (form.html) -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -9,17 +10,28 @@
 <div class="container mt-4">
   <h2 th:text="${cliente.id == null} ? 'Novo Cliente' : 'Editar Cliente'"></h2>
   <form th:action="@{/clientes/salvar}" th:object="${cliente}" method="post">
+    
+    <!-- Campo oculto para o ID do cliente (necessário para edição) -->
+    <input type="hidden" th:field="*{id}"/>
+
     <div class="mb-3">
       <label class="form-label">Nome</label>
-      <input type="text" class="form-control" th:field="*{nome}" required>
+      <input type="text" class="form-control" th:field="*{nome}" required/>
     </div>
+
+    <!-- Campo de telefone -->
     <div class="mb-3">
       <label class="form-label">Telefone</label>
-      <input type="text" class="form-control" th:field="*{telefone}" required>
+      <input type="text" class="form-control" th:field="*{telefone}" required/>
     </div>
+
     <button type="submit" class="btn btn-success">Salvar</button>
     <a th:href="@{/clientes}" class="btn btn-secondary">Cancelar</a>
+
+    <!-- Botão para voltar ao index -->
+    <a th:href="@{/}" class="btn btn-primary">Voltar para o Index</a>
   </form>
 </div>
 </body>
 </html>
+

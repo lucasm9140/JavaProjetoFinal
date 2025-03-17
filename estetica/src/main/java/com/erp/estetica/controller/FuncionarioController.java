@@ -14,36 +14,41 @@ public class FuncionarioController {
     @Autowired
     private FuncionarioRepository funcionarioRepository;
 
-    // Lista todos os funcionários
     @GetMapping
     public String listar(Model model) {
         model.addAttribute("funcionarios", funcionarioRepository.findAll());
         return "funcionarios/lista";
     }
 
-    // Exibe o formulário para cadastrar um novo funcionário
     @GetMapping("/novo")
     public String novo(Model model) {
         model.addAttribute("funcionario", new Funcionario());
         return "funcionarios/form";
     }
 
-    // Salva ou atualiza o funcionário
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Funcionario funcionario) {
-        funcionarioRepository.save(funcionario);
+        if (funcionario.getId() != null) {
+            // Atualiza o funcionário se o ID já existir
+            funcionarioRepository.save(funcionario);
+        } else {
+            // Cria um novo funcionário se não tiver ID
+            funcionarioRepository.save(funcionario);
+        }
         return "redirect:/funcionarios";
     }
 
-    // Exibe o formulário para editar um funcionário
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable("id") Integer id, Model model) {
         Funcionario funcionario = funcionarioRepository.findById(id).orElse(null);
-        model.addAttribute("funcionario", funcionario);
-        return "funcionarios/form";
+        if (funcionario != null) {
+            model.addAttribute("funcionario", funcionario);
+            return "funcionarios/form";
+        } else {
+            return "redirect:/funcionarios";  // Caso não encontre o funcionário
+        }
     }
 
-    // Deleta um funcionário
     @GetMapping("/deletar/{id}")
     public String deletar(@PathVariable("id") Integer id) {
         funcionarioRepository.deleteById(id);

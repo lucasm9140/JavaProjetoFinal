@@ -9,23 +9,48 @@
 <div class="container mt-4">
   <h2 th:text="${agendamento.id == null} ? 'Novo Agendamento' : 'Editar Agendamento'"></h2>
   <form th:action="@{/agendamentos/salvar}" th:object="${agendamento}" method="post">
+    <!-- Campo oculto para o ID do agendamento (necessário para edição) -->
+    <input type="hidden" th:field="*{id}">
+
+    <!-- Mensagens de erro, caso existam -->
+    <div th:if="${#fields.hasErrors('servico')}" class="alert alert-danger">
+      <p th:each="err : ${#fields.errors('servico')}" th:text="${err}"></p>
+    </div>
+
     <div class="mb-3">
       <label class="form-label">Serviço</label>
-      <select class="form-select" th:field="*{servico}" required>
-        <option th:each="servico : ${servicos}" th:value="${servico}" th:text="${servico.nome}"></option>
+      <select class="form-select" th:field="*{servico.id}" required>
+        <option value="">Selecione um serviço</option>
+        <option th:each="servico : ${servicos}" 
+                th:value="${servico.id}" 
+                th:text="${servico.nome}"></option>
       </select>
     </div>
+    
+    <!-- Mensagens de erro para o nome do cliente -->
+    <div th:if="${#fields.hasErrors('clienteNome')}" class="alert alert-danger">
+      <p th:each="err : ${#fields.errors('clienteNome')}" th:text="${err}"></p>
+    </div>
+
     <div class="mb-3">
       <label class="form-label">Nome do Cliente</label>
       <input type="text" class="form-control" th:field="*{clienteNome}" required>
     </div>
+
+    <!-- Mensagens de erro para a data e hora -->
+    <div th:if="${#fields.hasErrors('dataHora')}" class="alert alert-danger">
+      <p th:each="err : ${#fields.errors('dataHora')}" th:text="${err}"></p>
+    </div>
+
     <div class="mb-3">
       <label class="form-label">Data e Hora</label>
-      <input type="datetime-local" class="form-control" name="dataHoraStr" required>
+      <input type="datetime-local" class="form-control" th:field="*{dataHora}" required>
     </div>
+
     <button type="submit" class="btn btn-success">Salvar</button>
     <a th:href="@{/agendamentos}" class="btn btn-secondary">Cancelar</a>
   </form>
 </div>
 </body>
 </html>
+
