@@ -1,4 +1,4 @@
-# Projeto Final Gerenciamento de Agendamento de Serviços
+# Projeto Final - Sistema ERP Web - M&V Estética Automotiva
 
 ## 📌 Sobre o Projeto
 
