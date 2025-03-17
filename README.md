@@ -90,6 +90,6 @@
 
 - Adicionar novas funcionalidades
 
-# 🔧 Mantenedor: Lucas Matheus (lucas14fdk@gmail.com)
+# 🔧 Mantenedores: Gesiel Henrique/Lucas Matheus (lucas14fdk@gmail.com)
 - 📂 Repositório:(https://github.com/lucasm9140/JavaProjetoFinal)
 
