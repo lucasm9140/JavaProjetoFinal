@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" th:href="@{/}">
-                <img th:src="@{/img/logo.png}" alt="Logo M&V" width="60" class="d-inline-block align-text-top">
+                <img th:src="@{img/logo.png}" alt="Logo M&V" width="60" class="d-inline-block align-text-top">
                 M&V Estética Automotiva
             </a>
             <!-- Itens da Navbar (copiar do index.html) -->
@@ -24,7 +24,7 @@
     <main class="container my-5">
         <!-- Botão Voltar Adicionado -->
         <div class="mb-4">
-            <a th:href="@{/}" class="btn btn-outline-dark">
+            <a th:href="@{/index}" class="btn btn-outline-dark">
                 ← Voltar para Página Inicial
             </a>
         </div>
@@ -63,12 +63,12 @@
         <section class="my-5">
             <div class="row g-4">
                 <div class="col-md-6 order-md-2">
-                    <img src="https://via.placeholder.com/600x400" alt="Equipe M&V" class="img-fluid rounded shadow">
+                    <img src="img/logo.png" alt="Equipe M&V" class="img-fluid rounded shadow">
                 </div>
                 <div class="col-md-6 order-md-1">
                     <h2 class="mb-3">Nossa Missão</h2>
                     <p>Proporcionar excelência em serviços automotivos com tecnologia de ponta, mantendo nossos clientes seguros e satisfeitos.</p>
-                    <a th:href="@{/}" class="btn btn-dark mt-3">Conheça Nossos Serviços</a>
+                    <a th:href="@{/servicos}" class="btn btn-dark mt-3">Conheça Nossos Serviços</a>
                 </div>
             </div>
         </section>
